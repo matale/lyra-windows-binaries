@@ -1,5 +1,7 @@
 My (SUCCESFUL!) attempt at building the Windows binaries for the lyra codec.
 
+## You can find the two binaries in the windows_binaries folder.
+
 Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
 
 Made the changes in the two commits  
