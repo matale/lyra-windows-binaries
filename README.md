@@ -4,9 +4,10 @@ My (SUCCESFUL!) attempt at building the Windows binaries for the lyra codec.
 
 Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
 
-1. Made the changes in the two commits  
-   https://github.com/matale/lyra-windows-binaries/pull/1/commits/aaffaf25a0a7b22ccc934884212105fae1416038  
-   https://github.com/matale/lyra-windows-binaries/pull/1/commits/66cee6038ff9865d78a3a95179a3fe889940880f
+1. Cloned Google Lyra repo and made the changes in the two commits
+
+- https://github.com/matale/lyra-windows-binaries/pull/1/commits/aaffaf25a0a7b22ccc934884212105fae1416038
+- https://github.com/matale/lyra-windows-binaries/pull/1/commits/66cee6038ff9865d78a3a95179a3fe889940880f
 
 2. Installed chocolatey.
 
@@ -29,21 +30,25 @@ Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
     `choco install bazelisk`  
    Bazelisk installed Bazel (8.3.1) didnt have do do anythng here.
 
-8. Git cloned the lyra repo
-
-9. Ran  
+8. Ran  
    `bazel build -c opt lyra/cli_example:decoder_main `  
    and then  
    `bazel build -c opt lyra/cli_example:encoder_main  `
    from the repo.
 
-.exe gets generated in something like  
-`C:\Users\[username]\_bazel_john\yjt4r5n2\execroot\__main__\bazel-out\x64_windows-opt\bin\lyra\cli_example\.. `
+.exe gets generated in something like
+
+```
+C:\Users\[username]\_bazel_john\yjt4r5n2\execroot\__main__\bazel-out\x64_windows-opt\bin\lyra\cli_example\..
+```
 
 Recommend you install Search Everything by void tools and simple search for the name encoder_main, decoder_main
 
-My complete PATH  
-`Path=C:\Program Files\Git\bin;C:\Users\john\AppData\Roaming\Python\Python314\Scripts;C:\Python314\Scripts\;C:\Python314\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin `
+My complete PATH
+
+```
+Path=C:\Program Files\Git\bin;C:\Users\john\AppData\Roaming\Python\Python314\Scripts;C:\Python314\Scripts\;C:\Python314\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin
+```
 
 # Lyra: a generative low bitrate speech codec
 
@@ -107,17 +112,19 @@ right version of the NDK.
 3.  Check the available packages to install in case they don't match the
     following steps.
 
-            ```shell
-            bin/sdkmanager  --sdk_root=$HOME/android/sdk --list
-            ```
+                    ```shell
+                    bin/sdkmanager  --sdk_root=$HOME/android/sdk --list
+                    ```
 
-            Some systems will already have the java runtime set up. But if you see an
-            error here like `ERROR: JAVA_HOME is not set and no 'java' command could be
+                    Some systems will already have the java runtime set up. But if you see an
+                    error here like `ERROR: JAVA_HOME is not set and no 'java' command could be
 
-        found on your PATH.`, this means you need to install the java runtime with
+                found on your PATH.`, this means you need to install the java runtime with
 
-    `sudo apt install default-jdk`first. You will also need to add`export
-    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64`(type`ls /usr/lib/jvm`to see
+            `sudo apt install default-jdk`first. You will also need to add`export
+
+        JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64`(type`ls /usr/lib/jvm`to see
+
     which path was installed) to your $HOME/.bashrc and reload it with`source
     $HOME/.bashrc`.
 
