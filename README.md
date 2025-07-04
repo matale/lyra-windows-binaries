@@ -1,5 +1,16 @@
 My (SUCCESFUL!) attempt at building the Windows binaries for the lyra codec.
 
+It needs the lyra folder to run! The one with lyra\model_coeffs in it.
+
+So if the encoder_main.exe is in the root folder of the repo with the lyra folder next to it you run it with
+
+`encoder_main.exe --input_path=myaudio.wav --output_dir=. --bitrate=3200`  
+this will produce file `myaudio.lyra`  
+and decode with  
+`decoder_main.exe --encoded_path=myaudio.lyra --output_dir=. --bitrate=3200`
+
+Wavs have to meet specific req so far I know it has to be mono and sample rate 48,000 works you can see example files in 'lyra\testdata\...wav files'
+
 ## You can find the two binaries in the windows_binaries folder.
 
 Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
