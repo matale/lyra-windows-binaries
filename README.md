@@ -11,7 +11,7 @@ and decode with
 
 Wavs have to meet specific req so far I know it has to be mono and sample rate 48,000 works you can see example files in 'lyra\testdata\...wav files'
 
-## You can find the two binaries in the windows_binaries folder.
+## You can find the two binaries (.exe) in the root folder.
 
 Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
 
