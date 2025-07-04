@@ -4,44 +4,46 @@ My (SUCCESFUL!) attempt at building the Windows binaries for the lyra codec.
 
 Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
 
-Made the changes in the two commits  
-https://github.com/matale/lyra-windows-binaries/pull/1/commits/aaffaf25a0a7b22ccc934884212105fae1416038   
-https://github.com/matale/lyra-windows-binaries/pull/1/commits/66cee6038ff9865d78a3a95179a3fe889940880f   
+1. Made the changes in the two commits  
+   https://github.com/matale/lyra-windows-binaries/pull/1/commits/aaffaf25a0a7b22ccc934884212105fae1416038  
+   https://github.com/matale/lyra-windows-binaries/pull/1/commits/66cee6038ff9865d78a3a95179a3fe889940880f
 
-Installed chocolatey.
+2. Installed chocolatey.
 
-Installed Git (2.50.0.windows.1)  
-Added git bin folder (C:\Program Files\Git\bin) to path so Bazel can find bash, see complete PATH bellow I might have added something about Python cant remember.  
-Installed Python (3.14.0b3)  
-Had to turn off something called "Manage App Execution Aliases" for all pg the Python ones, with any of them on Bazel couldnt find Python. This is in the Windows start menu if you search.
+3. Installed Git (2.50.0.windows.1)  
+   Added git bin folder (C:\Program Files\Git\bin) to path so Bazel can find bash, see complete PATH bellow I might have added something about Python cant remember.
 
-Installed Visual C++ Redistributable the x64 one. (Not sure if required)  
-https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
-https://aka.ms/vs/17/release/vc_redist.x64.exe
+4. Installed Python (3.14.0b3)  
+   Had to turn off something called "Manage App Execution Aliases" for all pg the Python ones, with any of them on Bazel couldnt find Python. This is in the Windows start menu if you search.
 
-Installed Visual Studio 2019 Community (16.11.38) and the [Desktop development with C++] Workload (Installed components).  
-VS 2022 would not be picked up by Bazel no matter what I tried.  
-The only place I could find VS 2019 is https://gist.github.com/Mr-Precise/9967e3fcf03f2df0282b76841d2f3876 the official MS page leads to nowhere.  
-VS is an online installer, if it ever goes away you might need to find "other means" of obtaining it ;)
+5. Installed Visual C++ Redistributable the x64 one. (Not sure if required)  
+   https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+   https://aka.ms/vs/17/release/vc_redist.x64.exe
 
-Installed bazelisk (1.26.0) https://github.com/bazelbuild/bazelisk using Chocolatey  
- `choco install bazelisk`  
-Bazelisk installed Bazel (8.3.1) didnt have do do anythng here.
+6. Installed Visual Studio 2019 Community (16.11.38) and the [Desktop development with C++] Workload (Installed components).  
+   VS 2022 would not be picked up by Bazel no matter what I tried.  
+   The only place I could find VS 2019 is https://gist.github.com/Mr-Precise/9967e3fcf03f2df0282b76841d2f3876 the official MS page leads to nowhere.  
+   VS is an online installer, if it ever goes away you might need to find "other means" of obtaining it ;)
 
-My complete PATH  
-`Path=C:\Program Files\Git\bin;C:\Users\john\AppData\Roaming\Python\Python314\Scripts;C:\Python314\Scripts\;C:\Python314\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin `
+7. Installed bazelisk (1.26.0) https://github.com/bazelbuild/bazelisk using Chocolatey  
+    `choco install bazelisk`  
+   Bazelisk installed Bazel (8.3.1) didnt have do do anythng here.
 
-Git cloned the lyra repo  
-ran  
-`bazel build -c opt lyra/cli_example:decoder_main `  
-and then  
-`bazel build -c opt lyra/cli_example:encoder_main  `
-from the repo.
+8. Git cloned the lyra repo
+
+9. Ran  
+   `bazel build -c opt lyra/cli_example:decoder_main `  
+   and then  
+   `bazel build -c opt lyra/cli_example:encoder_main  `
+   from the repo.
 
 .exe gets generated in something like  
 `C:\Users\[username]\_bazel_john\yjt4r5n2\execroot\__main__\bazel-out\x64_windows-opt\bin\lyra\cli_example\.. `
 
 Recommend you install Search Everything by void tools and simple search for the name encoder_main, decoder_main
+
+My complete PATH  
+`Path=C:\Program Files\Git\bin;C:\Users\john\AppData\Roaming\Python\Python314\Scripts;C:\Python314\Scripts\;C:\Python314\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin `
 
 # Lyra: a generative low bitrate speech codec
 
@@ -105,16 +107,18 @@ right version of the NDK.
 3.  Check the available packages to install in case they don't match the
     following steps.
 
-    ```shell
-    bin/sdkmanager  --sdk_root=$HOME/android/sdk --list
-    ```
+            ```shell
+            bin/sdkmanager  --sdk_root=$HOME/android/sdk --list
+            ```
 
-    Some systems will already have the java runtime set up. But if you see an
-    error here like `ERROR: JAVA_HOME is not set and no 'java' command could be
-found on your PATH.`, this means you need to install the java runtime with
-    `sudo apt install default-jdk` first. You will also need to add `export
-JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64` (type `ls /usr/lib/jvm` to see
-    which path was installed) to your $HOME/.bashrc and reload it with `source
+            Some systems will already have the java runtime set up. But if you see an
+            error here like `ERROR: JAVA_HOME is not set and no 'java' command could be
+
+        found on your PATH.`, this means you need to install the java runtime with
+
+    `sudo apt install default-jdk`first. You will also need to add`export
+    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64`(type`ls /usr/lib/jvm`to see
+    which path was installed) to your $HOME/.bashrc and reload it with`source
     $HOME/.bashrc`.
 
 4.  Install the r21 ndk, android sdk 30, and build tools:
