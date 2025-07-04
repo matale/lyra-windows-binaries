@@ -1,4 +1,4 @@
-My (SUCCESFUL!) attempt at building the Windows binaries for the lyra codec.
+# My (SUCCESFUL!) attempt at building the Windows binaries for the lyra codec.
 
 It needs the lyra folder to run! The one with lyra\model_coeffs in it.
 
