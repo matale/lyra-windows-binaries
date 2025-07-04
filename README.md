@@ -15,7 +15,7 @@ Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
    Added git bin folder (C:\Program Files\Git\bin) to path so Bazel can find bash, see complete PATH bellow I might have added something about Python cant remember.
 
 4. Installed Python (3.14.0b3)  
-   Had to turn off something called "Manage App Execution Aliases" for all pg the Python ones, with any of them on Bazel couldnt find Python. This is in the Windows start menu if you search.
+   Had to turn off something called "Manage App Execution Aliases" for all of the Python ones, with any of them on Bazel couldnt find Python. This is in the Windows start menu if you search.
 
 5. Installed Visual C++ Redistributable the x64 one. (Not sure if required)  
    https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
