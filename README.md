@@ -2,7 +2,9 @@ My (SUCCESFUL!) attempt at building the Windows binaries for the lyra codec.
 
 Steps as much as I can remember. ChatGPT is helful if you get stuck or errors.
 
-Made the changes in the commit.
+Made the changes in the two commits  
+https://github.com/matale/lyra-windows-binaries/pull/1/commits/aaffaf25a0a7b22ccc934884212105fae1416038   
+https://github.com/matale/lyra-windows-binaries/pull/1/commits/66cee6038ff9865d78a3a95179a3fe889940880f   
 
 Installed chocolatey.
 
