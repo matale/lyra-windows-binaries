@@ -1,1 +1,4 @@
 *~
+/bazel-lyra
+/bazel-bin
+/bazel-out
